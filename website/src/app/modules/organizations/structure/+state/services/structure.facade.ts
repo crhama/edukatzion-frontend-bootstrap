@@ -18,7 +18,7 @@ export class StructureFacade {
 
     constructor(private _store: Store<OrganizationStructureState>){}
 
-    getOrganizationStructure(){
+    loadOrganizationStructure(){
         this._store.dispatch(loadOrganizationStructureRequest())
     }
 }

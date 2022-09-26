@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { tap } from 'rxjs';
 import { DkzTreeviewItem } from 'src/app/modules/shared-components/dkz-treeview/models/dkz-treeview.model';
+import { StructureFacade } from '../../+state/services/structure.facade';
 
 @Component({
   selector: 'app-organization-structure',
@@ -7,63 +9,28 @@ import { DkzTreeviewItem } from 'src/app/modules/shared-components/dkz-treeview/
   styleUrls: ['./organization-structure.component.scss']
 })
 export class OrganizationStructureComponent implements OnInit {
-  organizations: DkzTreeviewItem[] = [
-    {
-      id: '1',
-      name: 'University of Maryland Baltimore County',
-      active: false,
-      children: [
-        {
-          id: '2',
-          name: 'Medical School',
-          active: false,
-          children: [
-            {
-              id: '3',
-              name: 'Undergraduated',
-              active: false
-            },
-            {
-              id: '4',
-              name: 'Graduated',
-              active: false
-            }
-          ]
-        },
-        {
-          id: '5',
-          name: 'Law School',
-          active: false,
-          children: [
-            {
-              id: '6',
-              name: 'Undergraduated',
-              active: false
-            },
-            {
-              id: '7',
-              name: 'Graduated',
-              active: false
-            }
-          ]
-        }
-      ]
-    }
-  ]
-
+  organizations!: DkzTreeviewItem[];
   
-  constructor() { }
 
-  ngOnInit(): void {}
+  constructor(private _facade: StructureFacade) { }
 
-  addItem(id: string){
+  ngOnInit(): void {
+    this._facade.organizations$
+      .pipe(
+        tap((orgStructure) => this.organizations = orgStructure)
+      )
+      .subscribe();
+    this._facade.loadOrganizationStructure();
+  }
+
+  addItem(id: string) {
     console.log('add: ', id);
   }
-  editItem(id: string){
+  editItem(id: string) {
     console.log('edit: ', id);
   }
-  deleteItem(id: string){
-    console.log('delete: ', id);    
+  deleteItem(id: string) {
+    console.log('delete: ', id);
   }
-  
+
 }
