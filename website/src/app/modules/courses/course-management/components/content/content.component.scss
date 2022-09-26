@@ -1,0 +1,111 @@
+.vertical-point-progress {
+    max-width: 25rem;
+    margin: 0 auto;
+    list-style-type: none;
+    /* counter-reset: none; */
+    margin: 0;
+    font-family: Poppins;
+}
+
+.vertical-point-progress li {
+    padding: 0 0 1rem 0;
+    position: relative;
+    margin: 0;
+}
+
+.vertical-point-progress li:before {
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    content: "";
+    height: 100%;
+    width: 0;
+}
+
+.vertical-point-progress li.selected-step:before {
+    border: 2px solid #2a6ebc;
+    background-color: #2a6ebc;
+}
+
+.vertical-point-progress li.non-selected-step:before {
+    border: 2px solid #ADB9C7;
+    background-color: #ADB9C7;
+}
+
+li > div {
+    cursor: pointer;
+}
+
+.progress-step {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;    
+    height: 2rem;
+    width: 2rem;
+}
+
+span.selected-step {
+    border: 2px solid #2a6ebc;
+}
+
+span.non-selected-step {
+    border: 2px solid #ADB9C7;
+}
+
+.check-icon {
+    font-size: 2rem;
+}
+
+
+
+
+
+
+//=============================================
+
+// .vertical-point-progress {
+//     max-width: 400px;
+//     margin: 0 auto;
+//     list-style-type: none;
+//     /* counter-reset: none; */
+//     margin: 0;
+//     font-family: Poppins;
+// }
+
+// .vertical-point-progress li {
+//     padding: 0 0 20px 50px;
+//     position: relative;
+//     margin: 0;
+// }
+
+// .vertical-point-progress li:after {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     content: "";
+//     /* counter-increment: none; */
+//     border: 1px solid #ADB9C7;
+//     border-radius: 50%;
+//     display: inline-block;
+//     height: 24px;
+//     width: 24px;
+//     text-align: center;
+//     line-height: 24px;
+//     background: #ADB9C7;
+// }
+
+
+// .vertical-point-progress li:before {
+//     position: absolute;
+//     left: 10.4px;
+//     top: 0;
+//     content: "";
+//     height: 100%;
+//     width: 0;
+//     border: 2px solid #EEF2F6;
+// }
+
+// .vertical-point-progress li:nth-child(2):after {
+//   border: 1px solid red;
+//   background: red;
+// }

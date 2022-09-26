@@ -1,0 +1,112 @@
+<form class="row g-3" [formGroup]="schoolsAttendedForm">
+    <div class="col-md-12">
+        <label for="inputSchoolName" class="form-label">School Name</label>
+        <input formControlName="schoolName" type="text" class="form-control" id="inputSchoolName">
+    </div>
+    <div class="col-md-3">
+        <label for="inputSchoolAddress" class="form-label">School Address</label>
+        <input formControlName="schoolAdrress" type="text" class="form-control" id="inputSchoolAddress">
+    </div>
+    <div class="col-md-3">
+        <label for="inputSchoolCity" class="form-label">City</label>
+        <input formControlName="schoolCity" type="text" class="form-control" id="inputSchoolCity">
+    </div>
+    <div class="col-md-3">
+        <label for="inputSchoolZip" class="form-label">Zip</label>
+        <input formControlName="schoolZip" type="text" class="form-control" id="inputSchoolZip">
+    </div>
+    <div class="col-md-3">
+        <label for="inputSchoolCountry" class="form-label">School Country</label>
+        <input formControlName="schoolCountry" type="text" class="form-control" id="inputSchoolCountry">
+    </div>
+    <div class="col-md-3">
+        <label for="inputFromDate" class="form-label">From</label>
+        <input formControlName="fromDate" type="text" class="form-control" id="inputFromDate">
+    </div>
+    <div class="col-md-3">
+        <label for="inputToDate" class="form-label">To</label>
+        <input formControlName="toDate" type="text" class="form-control" id="inputToDate">
+    </div>
+    <div class="col-md-3">
+        <label for="inputDiplomaObtained" class="form-label">Diploma Obtained</label>
+        <input formControlName="diplomaObtained" type="text" class="form-control" id="inputDiplomaObtained">
+    </div>
+    <div class="col-md-3">
+        <label for="inputResults" class="form-label">Results</label>
+        <input formControlName="results" type="text" class="form-control" id="inputResults">
+    </div>
+    <div class="col-md-6 d-flex justify-content-start">
+        <button (click)="previousStep()" type="submit" class="btn btn-primary">
+            <i class="bi bi-arrow-left-circle"></i> Previous 
+        </button>
+    </div>
+    <div class="col-md-3 d-flex justify-content-start">
+        <button (click)="save()" type="submit" class="btn btn-primary">
+            <i class="bi bi-save"></i> Save 
+        </button>
+    </div>
+    <div class="col-md-3 d-flex justify-content-end">
+        <button (click)="nextStep()" type="submit" class="btn btn-primary">
+            Next <i class="bi bi-arrow-right-circle"></i>
+        </button>
+    </div>
+</form>
+
+<div class="row m-3 p-3 g-3 border border-secondary rounded" *ngFor="let school of schoolsAttended">
+    <div class="col-md-10">
+        <h5>
+            {{ school.schoolName }}
+        </h5>
+    </div>
+    <div class="col-md-1">
+        <span class="cursor-pointer">
+            <i class="bi bi-trash-fill"></i>
+            Delete
+        </span>
+    </div>
+    <div class="col-md-1">
+        <span class="cursor-pointer">
+            <i class="bi bi-pencil-square"></i>
+            Edit
+        </span>
+    </div>
+    <div class="col-md-12">
+        <label for="inputSchoolName" class="form-label">School Name</label>
+        <input type="text" [value]="school.schoolName" class="form-control" id="inputSchoolName" disabled readonly>
+    </div>
+    <div class="col-md-3">
+        <label for="inputSchoolAddress" class="form-label">School Address</label>
+        <input [value]="school.schoolAdrress" type="text" class="form-control" id="inputSchoolAddress" disabled
+            readonly>
+    </div>
+    <div class="col-md-3">
+        <label for="inputSchoolCity" class="form-label">City</label>
+        <input [value]="school.schoolCity" type="text" class="form-control" id="inputSchoolCity" disabled readonly>
+    </div>
+    <div class="col-md-3">
+        <label for="inputSchoolZip" class="form-label">Zip</label>
+        <input [value]="school.schoolZip" type="text" class="form-control" id="inputSchoolZip" disabled readonly>
+    </div>
+    <div class="col-md-3">
+        <label for="inputSchoolCountry" class="form-label">School Country</label>
+        <input [value]="school.schoolCountry" type="text" class="form-control" id="inputSchoolCountry" disabled
+            readonly>
+    </div>
+    <div class="col-md-3">
+        <label for="inputFromDate" class="form-label">From</label>
+        <input [value]="school.fromDate" type="text" class="form-control" id="inputFromDate" disabled readonly>
+    </div>
+    <div class="col-md-3">
+        <label for="inputToDate" class="form-label">To</label>
+        <input [value]="school.toDate" type="text" class="form-control" id="inputToDate" disabled readonly>
+    </div>
+    <div class="col-md-3">
+        <label for="inputDiplomaObtained" class="form-label">Diploma Obtained</label>
+        <input [value]="school.diplomaObtained" type="text" class="form-control" id="inputDiplomaObtained" disabled
+            readonly>
+    </div>
+    <div class="col-md-3">
+        <label for="inputResults" class="form-label">Results</label>
+        <input [value]="school.results" type="text" class="form-control" id="inputResults" disabled readonly />
+    </div>
+</div>

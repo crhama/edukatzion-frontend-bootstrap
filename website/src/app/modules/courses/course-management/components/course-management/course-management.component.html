@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header" style="background-color: white;">
+        <h4>IS 600 – Introduction to Object-Oriented Programming Concepts</h4>
+        <div class="card-menu-wrapper">
+            <ul routerLinkActive="active" class="nav justify-content-start bottom-line">
+                <li>
+                    <a [routerLink]="['home']" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact: true}"
+                    class="nav-link px-2 link-dark">Home</a>
+                </li>
+                <li><a [routerLink]="['syllabus']" routerLinkActive="active"
+                    class="nav-link px-2 link-dark">Syllabus</a>
+                </li>
+                <li><a [routerLink]="['content']" routerLinkActive="active"
+                    class="nav-link px-2 link-dark">Content</a>
+                </li>
+                <li>
+                    <a [routerLink]="['assessments']" routerLinkActive="active"
+                    class="nav-link px-2 link-dark">Assessments</a>
+                </li>
+                <li>
+                    <a [routerLink]="['grades']" routerLinkActive="active"
+                    class="nav-link px-2 link-dark">Grades</a>
+                </li>
+                <li>
+                    <a [routerLink]="['students']" routerLinkActive="active"
+                    class="nav-link px-2 link-dark">Students</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-body">
+        <router-outlet></router-outlet>
+    </div>
+</div>

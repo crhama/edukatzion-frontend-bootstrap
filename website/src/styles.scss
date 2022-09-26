@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+body {
+    background-color: #eff2f6;
+}
+
+.base-bg {
+    background-color: #eff2f6;
+}
+
+.card-header {
+    border-bottom-color: white;
+
+    .card-menu-wrapper {
+        border-bottom: 1px solid rgb(0, 0, 0, 0.1);
+    }
+}
+
+.bottom-line {
+    margin-bottom: -2px;
+    .active {
+        border-bottom: 3px solid red;
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

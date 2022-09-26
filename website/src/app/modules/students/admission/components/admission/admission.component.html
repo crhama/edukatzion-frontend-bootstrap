@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-header" style="background-color: white;">
+        <h4>Admission</h4>
+        <div class="card-menu-wrapper">
+            <ul routerLinkActive="active" class="nav justify-content-start bottom-line">
+                <li>
+                    <a [routerLink]="['requirements']" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" class="nav-link px-2 link-dark">Requirements</a>
+                </li>
+                <li><a [routerLink]="['undergraduate']" routerLinkActive="active"
+                        class="nav-link px-2 link-dark">Undergraduate</a>
+                </li>
+                <li><a [routerLink]="['graduate']" routerLinkActive="active"
+                        class="nav-link px-2 link-dark">Graduate</a>
+                </li>
+                <li>
+                    <a [routerLink]="['application']" routerLinkActive="active"
+                        class="nav-link px-2 link-dark">Application</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-body">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student</th>
+                    <th>Total</th>
+                    <th>Grade</th>
+                    <th>Quiz 1</th>
+                    <th>Lab 1</th>
+                    <th>Exam 1</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of tableData">
+                    <td *ngFor="let td of row; let i = index;">
+                        {{ row[i] }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> 

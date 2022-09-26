@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header" style="background-color: white;">
+        <h4>Organization Structure</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6">
+                <dkz-treeview [model]="organizations"
+                    (add)="addItem($event)"
+                    (edit)="editItem($event)"
+                    (delete)="deleteItem($event)">                    
+                </dkz-treeview>
+            </div>
+            <div class="col-6"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="row pe-3">
+    <div class="col-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Assessment</th>
+                    <th>Points</th>
+                    <th>Weight</th>
+                    <th>Grade</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let asst of assignments">
+                    <td>{{ asst.title }}</td>
+                    <td>{{ asst.points }}</td>
+                    <td>{{ asst.weight}}</td>
+                    <td>
+                        <strong>({{ asst.grade }}%)</strong>
+                    </td>
+                    <td>
+                        <button (click)="displayFeedback(asst.id)"
+                        class="btn btn-outline-secondary btn-sm">
+                            Feedback
+                            <i class="bi bi-justify-right"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-6 base-bg">
+        FEEDBACK
+    </div>
+</div>

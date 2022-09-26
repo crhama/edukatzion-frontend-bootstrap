@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-header" style="background-color: white;">
+        <h4>Course Catalog</h4>
+        <div class="card-menu-wrapper">
+            <ul routerLinkActive="active" class="nav justify-content-start bottom-line">
+                <li>
+                    <a class="nav-link px-2 link-dark active">My Courses</a>
+                </li>
+                <li>
+                    <a class="nav-link px-2 link-dark">All</a>
+                </li>
+                <li>
+                    <a class="nav-link px-2 link-dark">Completed</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-body">
+        <div *ngFor="let row of cards" class="row row-cols-4 g-4">
+            <div *ngFor="let card of row" class="col">
+              <div class="card my-3">
+                <img src="./assets/images/image-card.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <a [routerLink]="['/courses/management']"
+                        class="link-dark text-decoration-none">
+                        {{card.title}}
+                    </a>                    
+                </h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

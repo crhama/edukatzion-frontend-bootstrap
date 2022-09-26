@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-12">
+        <ul class="progressbar">
+            <li [ngClass]="{'active': currentTab === 'basic-info'}">
+            <span (click)="setActiveTab('basic-info')">Personal</span>                
+            </li>
+            <li [ngClass]="{'active': currentTab === 'schools-attended'}">
+                <span (click)="setActiveTab('schools-attended')">Schools Attended</span>
+            </li>
+            <li [ngClass]="{'active': currentTab === 'summary'}">
+                <span (click)="setActiveTab('summary')">Summary</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row  px-3">
+    <div class="col-12  p-5  base-bg">
+        <div class="card">
+            <div class="card-body">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

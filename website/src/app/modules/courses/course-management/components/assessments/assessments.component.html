@@ -1,0 +1,41 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Due Date</th>
+            <th>Closed Date</th>
+            <th>completion Status</th>
+            <th>Evaluation Status</th>
+            <th>Score</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let asst of assessments">
+            <td>{{ asst.title }}</td>
+            <td>{{ asst.type }}</td>
+            <td>{{ asst.dueDate | date: 'short' }}</td>
+            <td>{{ asst.dueDate | date: 'short' }}</td>
+            <td>
+                <a class="text-decoration-none" [routerLink]="['']">
+                    {{ asst.completionStatus }}
+                </a>
+            </td>
+            <td>
+                <span *ngIf="asst.evalutationStatus">
+                    Feedback:
+                </span>                
+                <a class="text-decoration-none" [routerLink]="['']">
+                    {{ asst.evalutationStatus }}
+                </a>                
+            </td>
+            <td>
+                {{ asst.score }}                
+            </td>
+            <td>
+                <strong>({{ asst.scor_ptc ? asst.scor_ptc : '-' }}%)</strong>
+            </td>
+        </tr>
+    </tbody>
+</table>

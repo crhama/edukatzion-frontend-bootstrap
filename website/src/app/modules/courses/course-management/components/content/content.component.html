@@ -1,0 +1,34 @@
+<div class="row pe-3">
+    <div class="col-3">
+        <!-- Steps -->
+        <div class="py-2 px-8 overflow-auto">
+            <ol class="vertical-point-progress">
+                <ng-container *ngFor="let step of steps; let last = last; trackBy: trackByFn">
+                    <li class="d-flex position-relative"
+                        [ngClass]="step.order >= currentStep ? 'non-selected-step' : 'selected-step'">
+                        <div class="position-relative me-5" (click)="goToStep(step.order)">
+                            <span [ngClass]="step.order == currentStep ? 'selected-step' : 'non-selected-step'"
+                                class="progress-step d-flex align-items-center justify-content-center">
+                                <span *ngIf="step.order >= currentStep">
+                                    {{ step.order + 1 }}
+                                </span>
+                                <span class="check-icon text-primary" *ngIf="step.order < currentStep">
+                                    <i class="bi bi-check-circle"></i>
+                                </span>
+                            </span>
+                        </div>
+                        <div>
+                            <div>{{ step.title }}</div>
+                            <div>{{ step.subtitle }}</div>
+                        </div>
+                    </li>
+                </ng-container>
+            </ol>
+        </div>
+    </div>
+    <div class="col-9 base-bg">
+        <div>
+            <h1>Content: {{ content }}</h1>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.dkz-treeview,
+ul {
+    list-style-type: none;
+}
+
+.dkz-treeview {
+    margin: 0;
+    padding: 0;
+}
+
+.caret {
+    cursor: pointer;
+    user-select: none;
+    /* Prevent text selection */
+}
+
+/* Hide the nested list */
+.nested {
+    display: none;
+}
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.active {
+    display: block;
+}
+
+.crud-span {
+    margin-left: 2rem;
+    span {
+        margin-right: 1rem;
+    }
+}
