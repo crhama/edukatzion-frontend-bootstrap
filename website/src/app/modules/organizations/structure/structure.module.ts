@@ -8,11 +8,13 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import * as fromReducer from './+state/reducers/structure.reducer';
 import { StructureEffects } from './+state/effects/structure.effects';
+import { AddEditOrganizationComponent } from './components/modals/add-edit-organization/add-edit-organization.component';
 
 
 @NgModule({
   declarations: [
-    OrganizationStructureComponent
+    OrganizationStructureComponent,
+    AddEditOrganizationComponent
   ],
   imports: [
     CommonModule,

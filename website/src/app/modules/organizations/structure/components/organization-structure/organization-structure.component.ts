@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { tap } from 'rxjs';
 import { DkzTreeviewItem } from 'src/app/modules/shared-components/dkz-treeview/models/dkz-treeview.model';
 import { StructureFacade } from '../../+state/services/structure.facade';
+import { AddEditOrganizationComponent } from '../modals/add-edit-organization/add-edit-organization.component';
 
 @Component({
   selector: 'app-organization-structure',
@@ -28,11 +29,20 @@ export class OrganizationStructureComponent implements OnInit {
 
   addItem(id: string) {
     let model = this.findByIdRecursive(this.organizations, id);
-    
+    let parentModel = this.findByIdRecursive(this.organizations, model.parentId);
+    const modalRef = this._modalService.open(AddEditOrganizationComponent);
+    modalRef.componentInstance.model = model;
+    modalRef.componentInstance.parentModel = parentModel;
   }
+
   editItem(id: string) {
     let model = this.findByIdRecursive(this.organizations, id);
+    let parentModel = this.findByIdRecursive(this.organizations, model.parentId);
+    const modalRef = this._modalService.open(AddEditOrganizationComponent);
+    modalRef.componentInstance.model = model;
+    modalRef.componentInstance.parentModel = parentModel;
   }
+  
   deleteItem(id: string) {
     console.log('delete: ', id);
   }
