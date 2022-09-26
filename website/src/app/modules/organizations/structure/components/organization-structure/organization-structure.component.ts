@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { tap } from 'rxjs';
 import { DkzTreeviewItem } from 'src/app/modules/shared-components/dkz-treeview/models/dkz-treeview.model';
 import { StructureFacade } from '../../+state/services/structure.facade';
@@ -10,9 +11,11 @@ import { StructureFacade } from '../../+state/services/structure.facade';
 })
 export class OrganizationStructureComponent implements OnInit {
   organizations!: DkzTreeviewItem[];
-  
 
-  constructor(private _facade: StructureFacade) { }
+
+  constructor(
+    private _facade: StructureFacade,
+    private _modalService: NgbModal) { }
 
   ngOnInit(): void {
     this._facade.organizations$
@@ -24,13 +27,31 @@ export class OrganizationStructureComponent implements OnInit {
   }
 
   addItem(id: string) {
-    console.log('add: ', id);
+    let model = this.findByIdRecursive(this.organizations, id);
+    
   }
   editItem(id: string) {
-    console.log('edit: ', id);
+    let model = this.findByIdRecursive(this.organizations, id);
   }
   deleteItem(id: string) {
     console.log('delete: ', id);
   }
 
+  findByIdRecursive = (
+    arr: DkzTreeviewItem[], id: string
+  ): any => {
+    for (let i = 0; i < arr.length; i++) {
+      const elt = arr[i];
+      if (elt.id === id) {
+        return elt;
+      } else {
+        if (elt.children) {
+          const found = this.findByIdRecursive(elt.children, id);
+          if (found) {
+            return found;
+          }
+        }
+      }
+    }
+  }
 }
